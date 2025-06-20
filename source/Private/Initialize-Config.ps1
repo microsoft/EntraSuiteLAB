@@ -8,7 +8,7 @@ Set-PSFConfig -Module EntraSuiteLAB -Name 'Project.Name' -Value 'EntraSuiteLAB' 
 
 
 # Global Secure Access settings
-Set-PSFConfig -Module EntraSuiteLAB -Name 'GlobalSecureAccess.Enabled' -Value $true -Initialize -Validation boolean -Description 'Enable Global Secure Access provisioning' -AllowDelete
+Set-PSFConfig -Module EntraSuiteLAB -Name 'GlobalSecureAccess.Enabled' -Value $true -Initialize -Validation bool -Description 'Enable Global Secure Access provisioning' -AllowDelete
 
 
 # Others
