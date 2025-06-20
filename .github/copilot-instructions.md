@@ -57,6 +57,29 @@ Set-PSFConfig -Module EntraSuiteLAB -Name 'Area.ConfigName' -Value $defaultValue
 $configValue = Get-PSFConfigValue -FullName 'EntraSuiteLAB.Area.ConfigName'
 ```
 
+### Microsoft Graph API Calls
+- **Always use Invoke-EntraSuiteGraphRequest** for all Microsoft Graph API interactions
+- Avoid direct calls to Invoke-MgGraphRequest or other methods
+- Example usage:
+
+```powershell
+# Correct way to call Microsoft Graph API
+$users = Invoke-EntraSuiteGraphRequest -Method GET -Uri '/users' -All
+
+# Creating resources
+$newGroup = Invoke-EntraSuiteGraphRequest -Method POST -Uri '/groups' -Body @{
+    displayName = "Marketing Team"
+    mailNickname = "marketing"
+    mailEnabled = $false
+    securityEnabled = $true
+}
+
+# Updating resources
+Invoke-EntraSuiteGraphRequest -Method PATCH -Uri "/users/$userId" -Body @{
+    officeLocation = "Building 1, Floor 2"
+}
+```
+
 ### Function Templates
 
 #### Function Template
@@ -144,6 +167,7 @@ Set-PSFConfig -Module EntraSuiteLAB -Name 'Area.Setting' -Value $default -Initia
 6. **Specify OutputType** for all functions.
 7. **Use proper parameter validation** attributes.
 8. **Keep functions focused** - each function should do one thing well.
+9. **Use Invoke-EntraSuiteGraphRequest** for all Microsoft Graph API interactions to ensure consistent logging, error handling, and response processing.
 
 ## Required Module Dependencies
 
