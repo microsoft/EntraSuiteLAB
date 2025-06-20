@@ -1,3 +1,13 @@
-# Repository setup required :wave:
-    
-Please visit the website URL :point_right: for this repository to complete the setup of this repository and configure access controls.
+# EntraSuiteLAB
+
+This module provides an entire automation solution to create an Entra Suite lab environment
+
+## Make it yours
+
+---
+Generated with Plaster and the SampleModule template
+
+
+This is a sample Readme
+
+## Make it yours
