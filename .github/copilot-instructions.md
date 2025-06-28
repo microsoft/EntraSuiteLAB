@@ -29,9 +29,9 @@ EntraSuiteLAB/
 
 ```powershell
 # Examples of correct logging
-Write-PSFMessage -Level Verbose -Message "Starting process for $Param"
-Write-PSFMessage -Level Warning -Message "Resource not found" -Tag 'NotFound'
-Write-PSFMessage -Level Error -Message "Operation failed" -ErrorRecord $_
+Write-PSFMessage -Level Verbose -Message "Starting process for $Param" -ModuleName 'EntraSuiteLab'
+Write-PSFMessage -Level Warning -Message "Resource not found" -Tag 'NotFound' -ModuleName 'EntraSuiteLab'
+Write-PSFMessage -Level Error -Message "Operation failed" -ErrorRecord $_ -ModuleName 'EntraSuiteLab'
 ```
 
 - Common levels to use:
@@ -79,6 +79,8 @@ Invoke-EntraSuiteGraphRequest -Method PATCH -Uri "/users/$userId" -Body @{
     officeLocation = "Building 1, Floor 2"
 }
 ```
+
+Before creating or modifying the state of any resource or object, **always check for existing resources** and their current state. This helps avoid unnecessary changes and ensures idempotency.
 
 ### Function Templates
 
